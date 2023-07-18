@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div ng-app="employeeApp" ng-controller="employeeController">
+        <h2>Employee List</h2>
+
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="loadFromFile()">Load from File</button>
+            <button class="btn btn-primary" ng-click="loadFromDatabase()">Load from Database</button>
+        </div>
+
+        <h3>Youthful Employee</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Designation</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="youngestEmployee">
+                    <td>{{ youngestEmployee.Name }}</td>
+                    <td>{{ youngestEmployee.Designation }}</td>
+                    <td>{{ youngestEmployee.Age }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Elderly Employee</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Designation</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="eldestEmployee">
+                    <td>{{ eldestEmployee.Name }}</td>
+                    <td>{{ eldestEmployee.Designation }}</td>
+                    <td>{{ eldestEmployee.Age }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>All Employees</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Designation</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{ employee.Name }}</td>
+                    <td>{{ employee.Designation }}</td>
+                    <td>{{ employee.Age }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="employeeController.js"></script>
+</body>
+</html>
